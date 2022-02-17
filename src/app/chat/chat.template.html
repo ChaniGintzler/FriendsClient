@@ -1,0 +1,81 @@
+
+<!-- 
+
+<div *ngFor="let message of messages" [ngSwitch]="message.type">
+    <strong *ngSwitchCase="'status'">
+		<span>{{message.created}}</span>
+		<span>{{message.username}}</span>
+		<span>is</span>
+		<span>{{message.text}}</span>
+    </strong>
+    <span *ngSwitchDefault>
+	    <span>{{message.created}}</span>
+	    <span>{{message.username}}:</span>
+	    <span>{{message.text}}</span>
+    </span>
+</div>
+<form (ngSubmit)="sendMessage()">
+    <input type="text" name= "messageText" [(ngModel)]="messageText">
+    <input type="submit">
+</form> -->
+
+
+
+<div class="chat-window-container" >
+	<div class="chat-window">
+	  <div class="panel-container">
+		<div class="panel panel-default">
+  
+		  <div class="panel-heading top-bar">
+			<div class="panel-title-container">
+			  <h3 class="panel-title">
+				<span class="glyphicon glyphicon-comment"></span>
+				Chat - {{toProfile.creator.firstName}} {{toProfile.creator.lastName}} 
+			  </h3>
+			</div>
+			<div class="panel-buttons-container">
+			  <!-- you could put minimize or close buttons here -->
+			</div>
+		  </div>
+		  <div  style="height: 200px; overflow-y: auto;" #list [scrollTop]="list.scrollHeight">
+		  <div class="panel-body msg-container-base" *ngFor="let message of messages">
+				<div class="msg-container"
+				[ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
+		   
+			 <div class="avatar"
+				  *ngIf="!incoming">
+			   <!-- <img src="{{message.username.image}}"> -->
+			 </div>
+			 <div class="messages"
+			   [ngClass]="{'msg-sent': !incoming, 'msg-receive': incoming}">
+			   <p>{{message.text}}</p>
+				 <p class="time">{{message.username}} </p>
+				 <!-- • {{message.created}} -->
+			 </div>
+		   
+			 <div class="avatar"
+				  *ngIf="incoming">
+			   <!-- <img src="{{message.author.avatarSrc}}"> -->
+			 </div>
+		   </div>
+		</div>
+	</div>
+
+		<div class="panel-footer">
+		  <div class="input-group">
+			<input type="text"
+			class="chat-input"
+			placeholder="Write your message here..."
+			(keydown.enter)="sendMessage()"
+			name= "messageText" [(ngModel)]="messageText" />
+			<!-- <span class="input-group-btn">
+			  <button class="btn-chat"
+			  (click)="sendMessage()"
+			  >Send</button>
+			</span> -->
+		  </div>
+		</div>
+  
+	  </div>
+	</div>
+  </div>

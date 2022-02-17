@@ -1,0 +1,78 @@
+<style>
+    .my-drop-zone { border: dotted 3px lightgray; }
+   .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+   .another-file-over-class { border: dotted 3px green; }
+
+   html, body { height: 100%; }
+   </style>
+
+<div class="col-md-6 col-md-offset-3 panel panel-default " style="vertical-align:middle">
+        
+
+<div  >
+    <div *ngIf="!isEdit; else elseBlock">
+  <h1> {{profile?.firstName}} {{profile?.lastName}}</h1>
+    <div class="form-group row">
+        <label type="text" >{{profile?.description}}</label>
+    </div>
+   
+   <div class="form-group row">
+    <label for="Age">Age :</label> {{profile?.age}}
+</div>
+  <div class="form-group row">
+    <label for="Height">Height:</label  >{{profile?.height}}
+</div> 
+<div class="form-group row">
+ <label for="Hobbies">Hobbies:</label>  {{profile?.hobbies}}
+</div>
+<input type="button" class="btn btn-primary" (click)="isEdit=true" value="Edit">
+</div>
+
+<ng-template #elseBlock>
+
+            <form (ngSubmit)="save()" novalidate>
+                  
+               <div class="form-group row">
+                   <label for="First Name" class="col-sm-3 col-md-offset-3">First Name</label>
+                    <input class="col-sm-3" type="text" required [(ngModel)]="profile.firstName" name="firstName" placeholder="">
+               </div>
+            
+               <div class="form-group row">
+                   <label for="Last Name" class="col-sm-3 col-md-offset-3">Last Name</label>
+                   <input type="text" class="col-sm-3" required  [(ngModel)]="profile.lastName" name="lastName" placeholder="">  
+               </div>
+               
+               <div class="form-group row">
+                <label for="Description" class="col-sm-3 col-md-offset-3">Description</label>
+                <input type="text" class="col-sm-3" [(ngModel)]="profile.description"  name="description" placeholder="">
+               </div>
+             
+               <div class="form-group row" >
+                <label for="Age" class="col-sm-3 col-md-offset-3">Age</label>
+                <input type="number" class="col-sm-3" [(ngModel)]="profile.age"  name="age" placeholder="">
+            </div>
+            
+            <div class="form-group row">
+                <label for="Height" class="col-sm-3 col-md-offset-3">Height</label>  
+                <input type="number" class="col-sm-3" required  [(ngModel)]="profile.height" name="height" placeholder="">
+            </div>
+            
+            <div class="form-group row">
+                <label for="Hobbies" class="col-sm-3 col-md-offset-3">Hobbies</label>
+                <input type="text"  class="col-sm-3" required cols="30" [(ngModel)]="profile.hobbies"  name="hobbies" placeholder="">
+            </div>
+            
+            <div class="form-group row">
+            <input type="file" #fileInput class="col-sm-3 col-md-offset-3"  placeholder="Upload file..." />
+            </div>
+               <div class="form-group row">
+                   <input type="submit" value="Save" class="btn btn-primary col-sm- col-md-offset-5">
+               </div>
+            </form> 
+</ng-template>
+    <input type="button" (click)="back()" value="Back" class="btn btn-primary col-sm- col-md-offset-5">
+
+    </div>
+
+      
+    

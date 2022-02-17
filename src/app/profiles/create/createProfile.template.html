@@ -1,0 +1,101 @@
+
+
+<div
+  class="col-md-6 col-md-offset-3 panel panel-default"
+  style="vertical-align: middle"
+>
+  <h1>Your Profile</h1>
+  <form (ngSubmit)="create()" [formGroup]="profileForm" >
+    <div class="form-group row">
+      <label for="First Name" class="col-sm-3 col-md-offset-3"
+        >First Name</label
+      >
+      <input
+        class="col-sm-3"
+        type="text"
+      formControlName="firstName"
+        name="title"
+        placeholder=""
+      />
+    </div>
+
+    <div class="form-group row">
+      <label for="Last Name" class="col-sm-3 col-md-offset-3">Last Name</label>
+      <input
+        type="text"
+        class="col-sm-3"
+        formControlName="lastName"
+        name="content"
+        placeholder=""
+      />
+    </div>
+
+    <div class="form-group row">
+      <label for="Description" class="col-sm-3 col-md-offset-3"
+        >Description</label
+      >
+      <input
+        type="text"
+        class="col-sm-3"
+        formControlName="description"
+        name="content"
+        placeholder=""
+      />
+    </div>
+
+    <div class="form-group row">
+      <label for="Age" class="col-sm-3 col-md-offset-3">Age</label>
+      <input
+        type="number"
+        class="col-sm-3"
+        formControlName="age"
+        name="content"
+        placeholder=""
+      />
+    </div>
+
+    <div class="form-group row">
+      <label for="Height" class="col-sm-3 col-md-offset-3">Height</label>
+      <input
+        type="number"
+        class="col-sm-3"
+        formControlName="height"
+        name="content"
+        placeholder=""
+      />
+    </div>
+
+    <div class="form-group row">
+      <label for="Hobbies" class="col-sm-3 col-md-offset-3">Hobbies</label>
+      <input
+        type="text"
+        class="col-sm-3"
+        cols="30"
+        formControlName="hobbies"
+        name="content"
+        placeholder=""
+      />
+    </div>
+
+    <!-- <div class="form-group row">
+      <input
+        type="file"
+        #fileInput
+        class="col-sm-3 col-md-offset-3"
+        (change)="fileChangeEvent($event)"
+        placeholder="Upload file..."
+      /> 
+    </div>-->
+    <div class="form-group row">
+      <input
+        type="submit"
+        value="Save"
+        class="btn btn-primary col-sm- col-md-offset-5"
+      />
+    </div>
+  </form>
+</div>
+<map-comp
+  style="width: 100px"
+  (adressChangedEvent)="OnAdressChanged($event)"
+></map-comp>
