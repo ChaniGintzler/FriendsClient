@@ -1,41 +1,26 @@
 <div class="col-md-6 col-md-offset-3 panel panel-default " style="vertical-align:middle" >
         <h2>SIGN UP</h2>
-<form (ngSubmit)="signup()">
-    <div class="form-group row">
-        <label class="col-sm-3 col-md-offset-3">First Name:</label>
-        <input class="col-sm-3" type="text" [(ngModel)]="user.firstName" name="firstName">
-    </div>
-    <div class="form-group row">
-        <label class="col-sm-3 col-md-offset-3">Last Name:</label>
-        <input class="col-sm-3" type="text" [(ngModel)]="user.lastName" name="lastName">
-    </div>
-    <div class="form-group row">
-        <label class="col-sm-3 col-md-offset-3"  >Email:</label>
-        <input class="col-sm-3" type="text" [(ngModel)]="user.email" name="email">
-    </div>  
+<form [formGroup]="form">
+   
     <div class="form-group row">
         <label class="col-sm-3 col-md-offset-3">User Name:</label>
-        <input class="col-sm-3" type="text" [(ngModel)]="user.username" name="username">
-    </div>
+        <input class="col-sm-3" type="text" formControlName="userName" name="userName">
+    </div> 
+    <div class="form-group row">
+        <label   >Email:</label>
+        <input  type="text" formControlName="email" name="email">
+    </div>  
+
     <div class="form-group row">
         <label class="col-sm-3 col-md-offset-3" >Password:</label>
-        <input class="col-sm-3" type="password" [(ngModel)]="user.password" name="password">
+        <input class="col-sm-3" type="password" formControlName="password" name="password">
     </div>
     <div class="form-group row">
-        <input type="submit" value="Sign up" class="btn btn-primary col-sm- col-md-offset-5"/>
-        <!-- <a [routerLink]="['/']" class="btn btn-link">Cancel</a> -->
+        <button (click)="signup()" >Sign up</button>
     </div>
     <span>{{errorMessage}}</span>
 </form>
 </div>
 
 
-<style>
-    input, input[type="text"]{
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 4px ;
- /* border-radius: 4px ; */
-     border-width: 1px 1px 1px 1px; 
-    /* padding: 10px; */
-}
-</style>
+

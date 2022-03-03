@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from './authentication/authentication.service';
@@ -8,21 +8,23 @@ import { AuthenticationService } from './authentication/authentication.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy{
   title = 'friends';
 
   subscription:Subscription ;
   user:any;
  
   constructor(private _authenticationService: AuthenticationService, private router: Router) {
-    this.subscription = this._authenticationService.OnUserInOut$
+    this.subscription = this._authenticationService.loggedUser$
     .subscribe(item => this.user = item)
   } 
+
   ngOnInit() {
    
   }
+
   ngOnDestroy() {
-    // prevent memory leak when component is destroyed
     this.subscription.unsubscribe();
   }
+
 }

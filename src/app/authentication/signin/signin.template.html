@@ -1,34 +1,22 @@
-<!--
-    you can substitue the span of reauth email for a input with the email and
-    include the remember me checkbox
-    -->
+
   
     <div class="container">
             <div class="card card-container">
-                <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
                 <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
                 <p id="profile-name" class="profile-name-card"></p>
-                <form class="form-signin" (ngSubmit)="signin()">
+                <form class="form-signin" [formGroup]="form" >
                     <span id="reauth-email" class="reauth-email"></span>
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" 
-                    [(ngModel)]="credentials.username" name="username" required autofocus>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" 
-                     [(ngModel)]="credentials.password" name="password" required>
-                    <!-- <div id="remember" class="checkbox">
-                        <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                        </label>
-                    </div> -->
-                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
-                    <a href="/oauth/google">Sign in with Google</a>
-                    <a href="/oauth/facebook">Sign in with Facebook</a>
+                    <input type="email" class="form-control" placeholder="Email address" 
+                   formControlName="email" name="username" required autofocus>
+                    <input type="password"  class="form-control" placeholder="Password" 
+                     formControlName="password" name="password" required>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" (click)="signIn()">Log in</button>
+                    <!-- <a href="/oauth/google">Sign in with Google</a>
+                    <a href="/oauth/facebook">Sign in with Facebook</a> -->
                     <a [routerLink]="['/authentication/signup']">Signup</a>
-                </form><!-- /form -->
-                <!-- <a href="#" class="forgot-password">
-                    Forgot the password?
-                </a> -->
-            </div><!-- /card-container -->
-        </div><!-- /container -->
+                </form>
+            </div>
+        </div>
         <span>{{errorMessage}}</span>
         
        

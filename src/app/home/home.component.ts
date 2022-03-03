@@ -10,9 +10,7 @@ declare var __moduleName: string;
 })
 export class HomeComponent {
 	user: any;
-	image: string = '../app/images/winter.jpg';
-	constructor (private _authenticationService: AuthenticationService) {
-		this.user = _authenticationService.user;
-		console.log(this.user);
+	constructor () {
+		
 	}
 }

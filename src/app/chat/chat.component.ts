@@ -3,6 +3,7 @@ import {ChatService} from './chat.service';
 import {ActivatedRoute, ParamMap} from '@angular/router'
 import {ProfilesService} from '../profiles/profiles.service'
 import {AuthenticationService} from '../authentication/authentication.service'
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'chat',
@@ -15,9 +16,10 @@ export class ChatComponent {
 	//toUserObj:any;
 	toProfile:any;
 	incoming= true;
+	user: any;
+	subs: Subscription[]=[];
 
 	constructor(private _chatService: ChatService, private route: ActivatedRoute,
-	private  _profilesService:ProfilesService,
     private _authenticationService:AuthenticationService ) {
 		
 		//this.toUserObj=this._dataService.data;
@@ -28,6 +30,7 @@ export class ChatComponent {
 	
 	ngOnInit() {
 		this.messages = new Array();
+		this.subs.push(this._authenticationService.loggedUser$.subscribe(user=>this.user= user));
 		//this.userId=this.route.snapshot.params['id']
 		
 		// this._profilesService.read(this._dataService.data._id).subscribe((res:any)=>
@@ -54,14 +57,12 @@ export class ChatComponent {
 		var message = {
             text: this.messageText,
 			user:this.toProfile.creator._id,
-			username:this._authenticationService.user.firstName
-			//'59e341d444336ea434ace7af' //chanigmail
-         // 59e719340707c3c6ac8dfcd5  chani// chanig ??
+			username:this.user.username
+			
 		};
 
 		this._chatService.emit('chatMessage', message);
-		//console.log(message);
-		//message.userName='';
+		
 		this.messages.push(message);
             
 		this.messageText = ''
@@ -69,6 +70,9 @@ export class ChatComponent {
 
 	ngOnDestroy() {
 		this._chatService.removeListener('chatMessage');
+		this.subs.forEach(sub => {
+			sub.unsubscribe();
+		});
 	}
 }
 
