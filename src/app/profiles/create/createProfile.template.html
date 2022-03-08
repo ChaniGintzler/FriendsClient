@@ -14,65 +14,65 @@
         class="col-sm-3"
         type="text"
       formControlName="firstName"
-        name="title"
+        name="firstName"
         placeholder=""
       />
     </div>
 
     <div class="form-group row">
-      <label for="Last Name" class="col-sm-3 col-md-offset-3">Last Name</label>
+      <label for="Last Name" >Last Name</label>
       <input
         type="text"
         class="col-sm-3"
         formControlName="lastName"
-        name="content"
+        name="lastName"
         placeholder=""
       />
     </div>
 
     <div class="form-group row">
-      <label for="Description" class="col-sm-3 col-md-offset-3"
+      <label for="Description" 
         >Description</label
       >
       <input
         type="text"
         class="col-sm-3"
         formControlName="description"
-        name="content"
+        name="description"
         placeholder=""
       />
     </div>
 
     <div class="form-group row">
-      <label for="Age" class="col-sm-3 col-md-offset-3">Age</label>
+      <label for="Age" >Age</label>
       <input
         type="number"
         class="col-sm-3"
         formControlName="age"
-        name="content"
+        name="age"
         placeholder=""
       />
     </div>
 
     <div class="form-group row">
-      <label for="Height" class="col-sm-3 col-md-offset-3">Height</label>
+      <label for="Height" >Height</label>
       <input
         type="number"
         class="col-sm-3"
         formControlName="height"
-        name="content"
+        name="height"
         placeholder=""
       />
     </div>
 
     <div class="form-group row">
-      <label for="Hobbies" class="col-sm-3 col-md-offset-3">Hobbies</label>
+      <label for="Hobbies" >Hobbies</label>
       <input
         type="text"
         class="col-sm-3"
         cols="30"
         formControlName="hobbies"
-        name="content"
+        name="hobbies"
         placeholder=""
       />
     </div>
@@ -95,7 +95,7 @@
     </div>
   </form>
 </div>
-<map-comp
+<map-component
   style="width: 100px"
   (adressChangedEvent)="OnAdressChanged($event)"
-></map-comp>
+></map-component>

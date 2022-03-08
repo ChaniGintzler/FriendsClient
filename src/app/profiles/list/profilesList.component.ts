@@ -35,7 +35,7 @@ export class ProfilesListComponent implements OnInit {
 
   ngOnInit() {
     this.profiles$ = this.store.select(getAllProfiles);
-    	this.profiles$.subscribe(res=>console.log(res));
+    //	this.profiles$.subscribe(res=>console.log(res));
     //this.store.dispatch(loadProfiles());
     //   console.log('init liet');
     // this._profilesService.list().subscribe(

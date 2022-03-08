@@ -19,8 +19,8 @@ export class CreateProfileComponent {
   profileForm: FormGroup ;
   constructor(
     private store: Store<AppState>,
-    private _profilesService: ProfilesService,
-    private location: Location,
+   // private _profilesService: ProfilesService,
+   // private location: Location,
     private fb: FormBuilder
   ) {
     this.profileForm = this.fb.group({
@@ -31,6 +31,8 @@ export class CreateProfileComponent {
       height: null,
       description: null,
     });
+    
+
   }
 
   ngOnInit() {
@@ -52,5 +54,5 @@ export class CreateProfileComponent {
     // );
   }
 
-  fileChangeEvent(event: any) {}
+ // fileChangeEvent(event: any) {}
 }
