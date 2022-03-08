@@ -14,6 +14,7 @@ import { profilesReducer } from './store/profiles.reducers';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ProfilesResolver } from './profile.resolver';
+import { ProfileItemComponent } from './profile-item/profile-item.component';
 // import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ProfilesResolver } from './profile.resolver';
     ProfilesComponent,
     CreateProfileComponent,
     ProfilesListComponent,
-    ViewComponent
+    ViewComponent,
+    ProfileItemComponent
   ],
   exports:[ProfilesComponent,ProfilesListComponent],//
   providers:[ProfilesResolver]

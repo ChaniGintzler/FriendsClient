@@ -1,52 +1,19 @@
 <h1>Profiles</h1>
 
 <div class="col-md-6">
-	<div *ngFor="let profile of profiles$ | async">
-		
-
-		<div style="borderColor:Black">
-
-
-			<div class="card w-75" style.borderColor="Black">
-				<img class="card-img-top" src="{{profile.image}}" width="200px" height="100px">
-				<div class="card-block">
-					<h4 class="card-title" class="text-left" [routerLink]="['/profiles', profile._id]"> 
-						{{profile.firstName}} {{profile.lastName}}</h4>
-					<!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-					<p class="card-text"> {{profile.description}} </p>
-					<p>Age: {{profile.age}}</p>
-					<p>Height: {{profile.height}}</p>
-					<p>Hobbies: {{profile.hobbies}}</p>
-
-					<button type="button" value="Open Chat" class="btn btn-primary" (click)="openChat(profile._id)">Open Chat</button>
-					<button type="button" value="View" class="btn btn-primary" (click)="delete(profile._id)">Delete</button>
-
-				</div>
-			</div>
-
-			<br>
-			<br>
-		</div>
-	</div>
-
-
-	<!-- <div *ngIf="profiles && profiles.length === 0">
-		No profiles yet, why don't you
-		<a [routerLink]="['/profiles/create']">create one</a>?
-	</div> -->
-
+  <app-profile-item
+	*ngFor="let profile of profiles$ | async"
+	[profile]="profile"
+    (deleteEvent)="delete($event)"
+    (openChatEvent)="openChat($event)"
+  >
+  </app-profile-item>
 </div>
 
 <div class="container" class="col-md-6">
-
-	<!-- <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" [draggable]="true">
+  <!-- <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" [draggable]="true">
 		<agm-marker *ngFor="let p of profiles" (markerClick)="OnMarkerClicked(p)" [title]="p.firstName" [latitude]="p.address.latitude"
 		 [longitude]="p.address.longitude"></agm-marker>
 	</agm-map> -->
 </div>
 
-	<style>
-		agm-map {
-			height: 600px;
-		}
-	</style>

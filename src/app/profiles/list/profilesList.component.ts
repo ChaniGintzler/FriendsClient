@@ -8,6 +8,7 @@ import { getAllProfiles } from '../store/profiles.selectors';
 import { loadProfiles, profilesActionTypes } from '../store/profiles.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/reducers';
+import { ProfilesProducer } from '../store/profiles.producer';
 // import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 //import { WindowViewOutletComponent } from '../../core/window-view-outlet/window-view-outlet.component';
 //import { WindowViewService } from '../../core/window-view.service';
@@ -27,14 +28,15 @@ export class ProfilesListComponent implements OnInit {
   //   public zoom: number | undefined;
 
   constructor(
-    private store: Store<AppState>,
-    private _profilesService: ProfilesService,
+   // private store: Store<AppState>,
+	public profilesProducer: ProfilesProducer,
     private _router: Router
   ) //private _authenticationService: AuthenticationService
   {}
 
   ngOnInit() {
-    this.profiles$ = this.store.select(getAllProfiles);
+	this.profiles$ = this.profilesProducer.getProfiles$;
+	this.profilesProducer.getProfiles$.subscribe(res=>console.log(res));
     //	this.profiles$.subscribe(res=>console.log(res));
     //this.store.dispatch(loadProfiles());
     //   console.log('init liet');
@@ -65,14 +67,7 @@ export class ProfilesListComponent implements OnInit {
 
   delete(id: string) {
     console.log(id);
-    this.store.dispatch(profilesActionTypes.deleteProfile({profileId:id}));
-    // this._profilesService.delete(id).subscribe(
-    //   (res: any) => {
-    //     console.log(res);
-    //     this.profiles = this.profiles.filter((item) => item._id !== id);
-    //   },
-    //   (error: any) => console.log(error)
-    // );
+    this.profilesProducer.deleteProfile(id);
   }
 
   // private setCurrentPosition() {

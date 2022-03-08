@@ -1,0 +1,27 @@
+<div *ngIf="profile">
+		
+
+    <div style="borderColor:Black">
+
+
+        <div class="card w-75" style.borderColor="Black">
+            <img class="card-img-top" src="{{profile.image}}" width="200px" height="100px">
+            <div class="card-block">
+                <h4 class="card-title" class="text-left" [routerLink]="['/profiles', profile._id]"> 
+                    {{profile.firstName}} {{profile.lastName}}</h4>
+                <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                <p class="card-text"> {{profile.description}} </p>
+                <p>Age: {{profile.age}}</p>
+                <p>Height: {{profile.height}}</p>
+                <p>Hobbies: {{profile.hobbies}}</p>
+
+                <button type="button" value="Open Chat" class="btn btn-primary" (click)="openChat(profile._id)">Open Chat</button>
+                <button type="button" value="View" class="btn btn-primary" (click)="delete(profile._id)">Delete</button>
+
+            </div>
+        </div>
+
+        <br>
+        <br>
+    </div>
+</div>

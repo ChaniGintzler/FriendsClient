@@ -7,6 +7,7 @@ import { createProfile } from '../store/profiles.actions';
 import { AppState } from 'src/app/store/reducers';
 import { Store } from '@ngrx/store';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ProfilesProducer } from '../store/profiles.producer';
 declare var google: any;
 
 @Component({
@@ -18,7 +19,8 @@ export class CreateProfileComponent {
   errorMessage: string | undefined;
   profileForm: FormGroup ;
   constructor(
-    private store: Store<AppState>,
+    public profilesProducer:ProfilesProducer,
+   // private store: Store<AppState>,
    // private _profilesService: ProfilesService,
    // private location: Location,
     private fb: FormBuilder
@@ -45,7 +47,11 @@ export class CreateProfileComponent {
 
   create() {
     if (this.profileForm?.valid) {
-      this.store.dispatch(createProfile({ profile: this.profileForm?.value }));
+      this.profilesProducer.createProfile(this.profileForm.value);
+      //this.store.dispatch(createProfile({ profile: this.profileForm?.value }));
+    }
+    else {
+
     }
 
     // this._profilesService.create(this.profile).subscribe(
