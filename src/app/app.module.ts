@@ -17,6 +17,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/reducers';
 import { TokenInterceptor } from './authentication/http-interceptor';
+import { environment } from 'src/environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -31,6 +34,7 @@ import { TokenInterceptor } from './authentication/http-interceptor';
     StoreModule.forRoot(reducers, {
       metaReducers,
     }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
     ChatModule,
     MapModule,
     AgmCoreModule.forRoot({

@@ -3,12 +3,18 @@ import { Router, NavigationExtras } from '@angular/router';
 import { ProfilesService } from '../../profiles/profiles.service';
 import { AuthenticationService } from '../../authentication/authentication.service';
 import { Observable } from 'rxjs';
-import { Profile } from '../models/profile.model';
 import { getAllProfiles } from '../store/profiles.selectors';
 import { loadProfiles, profilesActionTypes } from '../store/profiles.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/reducers';
 import { ProfilesProducer } from '../store/profiles.producer';
+
+
+import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
+import { createReducer, on } from '@ngrx/store';
+import { Profile } from '../models/profile.model';
+import { reduce } from 'rxjs/operators';
+import { profilesReducer } from '../store/profiles.reducers';
 // import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 //import { WindowViewOutletComponent } from '../../core/window-view-outlet/window-view-outlet.component';
 //import { WindowViewService } from '../../core/window-view.service';
@@ -37,6 +43,32 @@ export class ProfilesListComponent implements OnInit {
   ngOnInit() {
 	this.profiles$ = this.profilesProducer.getProfiles$;
 	this.profilesProducer.getProfiles$.subscribe(res=>console.log(res));
+	// const adapter = createEntityAdapter<Profile>({
+	// 	selectId: (Profile) => Profile._id,
+	//   });
+  
+	// const  initialState = adapter.getInitialState({
+	// 	profilesLoaded: false,
+	//   });
+	// const prof = [
+    //     {
+    //       _id: '123',
+    //       lastName: 'a',
+    //       firstName: 'b',
+    //     },
+    //   ];
+	// const action = {
+    //     type: profilesActionTypes.profilesLoaded,
+    //     profiles: prof,
+    //   };
+    //   const currentState = { ...initialState , profilesLoaded:false};
+
+    //   const expected = { ...initialState };
+     // expected.profilesLoaded = true;
+     // expected.entities 
+
+     // const x = profilesReducer(currentState,profilesActionTypes.profilesLoaded);
+
     //	this.profiles$.subscribe(res=>console.log(res));
     //this.store.dispatch(loadProfiles());
     //   console.log('init liet');
