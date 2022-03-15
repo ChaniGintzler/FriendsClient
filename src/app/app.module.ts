@@ -10,7 +10,7 @@ import { ChatModule } from './chat/chat.module';
 import { HomeModule } from './home/home.module';
 import { MapModule } from './map/map.module';
 import { ProfilesModule } from './profiles/profiles.module';
-import { AgmCoreModule } from '@agm/core';
+// import { AgmCoreModule } from '@agm/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
@@ -33,9 +33,9 @@ import { TokenInterceptor } from './authentication/http-interceptor';
     }),
     ChatModule,
     MapModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyA-XQ2g2HHyo1Ygryc56Z5wuic3fKyXoKA',
-    }),
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'AIzaSyA-XQ2g2HHyo1Ygryc56Z5wuic3fKyXoKA',
+    // }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
