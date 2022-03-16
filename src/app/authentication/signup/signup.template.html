@@ -1,26 +1,33 @@
-<div class="col-md-6 col-md-offset-3 panel panel-default " style="vertical-align:middle" >
-        <h2>SIGN UP</h2>
-<form [formGroup]="form">
-   
-    <div class="form-group row">
-        <label class="col-sm-3 col-md-offset-3">User Name:</label>
-        <input class="col-sm-3" type="text" formControlName="userName" name="userName">
-    </div> 
-    <div class="form-group row">
-        <label   >Email:</label>
-        <input  type="text" formControlName="email" name="email">
-    </div>  
-
-    <div class="form-group row">
-        <label class="col-sm-3 col-md-offset-3" >Password:</label>
-        <input class="col-sm-3" type="password" formControlName="password" name="password">
-    </div>
-    <div class="form-group row">
-        <button (click)="signup()" >Sign up</button>
-    </div>
-    <span>{{errorMessage}}</span>
-</form>
-</div>
-
-
-
+ 
+    <div class="border">
+		<h3>Sign up</h3>
+            <!-- <div class="card card-container"> -->
+                <!-- <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" /> -->
+                <!-- <p id="profile-name" class="profile-name-card"></p> -->
+                <form class="wrapper" [formGroup]="form" >
+					<div>
+						<mat-form-field appearance="outline">
+						  <mat-label>User name</mat-label>
+						  <input matInput placeholder="User name" formControlName="userName" autofocus>
+						</mat-form-field>
+					  </div><div>
+						<mat-form-field appearance="outline">
+						  <mat-label>Email adress</mat-label>
+						  <input matInput placeholder="Email" formControlName="email" autofocus>
+						</mat-form-field>
+					  </div>
+					  <div>
+						<mat-form-field appearance="outline">
+						  <mat-label>Password</mat-label>
+						  <input matInput placeholder="Password" formControlName="password" autofocus>
+						</mat-form-field>
+					  </div>
+                   
+                    <button mat-raised-button color="primary" class="btn"
+					(click)="signup()">Sign up</button>
+                    <!-- <a href="/oauth/google">Sign in with Google</a>
+                    <a href="/oauth/facebook">Sign in with Facebook</a> -->
+					<span>{{errorMessage}}</span>
+                </form>
+        </div>
+       

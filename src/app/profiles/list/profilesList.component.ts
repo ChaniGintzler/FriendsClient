@@ -16,12 +16,10 @@ import { AppState } from 'src/app/store/reducers';
 @Component({
   selector: 'list',
   templateUrl: './profilesList.template.html',
-  //styles:['./profilesList.styles.css']
+  styleUrls:['./profilesList.styles.css']
 })
 export class ProfilesListComponent implements OnInit {
-  // profiles: any[] = [];
   profiles$: Observable<Profile[]> | undefined;
-  //   users: any[] = [];
   //   public latitude: number | undefined;
   //   public longitude: number | undefined;
   //   public zoom: number | undefined;
@@ -66,13 +64,6 @@ export class ProfilesListComponent implements OnInit {
   delete(id: string) {
     console.log(id);
     this.store.dispatch(profilesActionTypes.deleteProfile({profileId:id}));
-    // this._profilesService.delete(id).subscribe(
-    //   (res: any) => {
-    //     console.log(res);
-    //     this.profiles = this.profiles.filter((item) => item._id !== id);
-    //   },
-    //   (error: any) => console.log(error)
-    // );
   }
 
   // private setCurrentPosition() {
