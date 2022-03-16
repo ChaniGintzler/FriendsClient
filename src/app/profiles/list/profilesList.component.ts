@@ -37,64 +37,18 @@ export class ProfilesListComponent implements OnInit {
    // private store: Store<AppState>,
 	public profilesProducer: ProfilesProducer,
     private _router: Router
-  ) //private _authenticationService: AuthenticationService
+  ) 
   {}
 
   ngOnInit() {
 	this.profiles$ = this.profilesProducer.getProfiles$;
 	this.profilesProducer.getProfiles$.subscribe(res=>console.log(res));
-	// const adapter = createEntityAdapter<Profile>({
-	// 	selectId: (Profile) => Profile._id,
-	//   });
-  
-	// const  initialState = adapter.getInitialState({
-	// 	profilesLoaded: false,
-	//   });
-	// const prof = [
-    //     {
-    //       _id: '123',
-    //       lastName: 'a',
-    //       firstName: 'b',
-    //     },
-    //   ];
-	// const action = {
-    //     type: profilesActionTypes.profilesLoaded,
-    //     profiles: prof,
-    //   };
-    //   const currentState = { ...initialState , profilesLoaded:false};
-
-    //   const expected = { ...initialState };
-     // expected.profilesLoaded = true;
-     // expected.entities 
-
-     // const x = profilesReducer(currentState,profilesActionTypes.profilesLoaded);
-
-    //	this.profiles$.subscribe(res=>console.log(res));
-    //this.store.dispatch(loadProfiles());
-    //   console.log('init liet');
-    // this._profilesService.list().subscribe(
-    //   (pr) => (this.profiles = pr),
-    //   (error) => console.error()
-    // );
-
-    // 	this._authenticationService.list().subscribe
-    // 	((users:any)=>{this.users=users;
-    // },
-    // 		(error:any)=>console.log(error));
-
-    // 		this.setCurrentPosition();
+	
   }
 
   openChat(toUser: any) {
     console.log(toUser);
-    //let toUserObj = this.profiles.find((x) => x._id == toUser);
-    //};
-    //console.log(navigationExtras);
-    // var newWindow = window.open('http://localhost:3000/chat');
-
-    //this._dataService.data=toUserObj;
     this._router.navigate(['/chat']); //,{id:toUser}
-    //this.windowView.pushWindow(MyWindowComponent);
   }
 
   delete(id: string) {
