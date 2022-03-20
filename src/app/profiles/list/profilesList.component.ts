@@ -3,11 +3,18 @@ import { Router, NavigationExtras } from '@angular/router';
 import { ProfilesService } from '../../profiles/profiles.service';
 import { AuthenticationService } from '../../authentication/authentication.service';
 import { Observable } from 'rxjs';
-import { Profile } from '../models/profile.model';
 import { getAllProfiles } from '../store/profiles.selectors';
 import { loadProfiles, profilesActionTypes } from '../store/profiles.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/reducers';
+import { ProfilesProducer } from '../store/profiles.producer';
+
+
+import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
+import { createReducer, on } from '@ngrx/store';
+import { Profile } from '../models/profile.model';
+import { reduce } from 'rxjs/operators';
+import { profilesReducer } from '../store/profiles.reducers';
 // import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 //import { WindowViewOutletComponent } from '../../core/window-view-outlet/window-view-outlet.component';
 //import { WindowViewService } from '../../core/window-view.service';
@@ -16,63 +23,35 @@ import { AppState } from 'src/app/store/reducers';
 @Component({
   selector: 'list',
   templateUrl: './profilesList.template.html',
-  //styles:['./profilesList.styles.css']
+  styleUrls:['./profilesList.styles.css']
 })
 export class ProfilesListComponent implements OnInit {
-  // profiles: any[] = [];
   profiles$: Observable<Profile[]> | undefined;
-  //   users: any[] = [];
   //   public latitude: number | undefined;
   //   public longitude: number | undefined;
   //   public zoom: number | undefined;
 
   constructor(
-    private store: Store<AppState>,
-    private _profilesService: ProfilesService,
+   // private store: Store<AppState>,
+	public profilesProducer: ProfilesProducer,
     private _router: Router
-  ) //private _authenticationService: AuthenticationService
+  ) 
   {}
 
   ngOnInit() {
-    this.profiles$ = this.store.select(getAllProfiles);
-    	this.profiles$.subscribe(res=>console.log(res));
-    //this.store.dispatch(loadProfiles());
-    //   console.log('init liet');
-    // this._profilesService.list().subscribe(
-    //   (pr) => (this.profiles = pr),
-    //   (error) => console.error()
-    // );
-
-    // 	this._authenticationService.list().subscribe
-    // 	((users:any)=>{this.users=users;
-    // },
-    // 		(error:any)=>console.log(error));
-
-    // 		this.setCurrentPosition();
+	this.profiles$ = this.profilesProducer.getProfiles$;
+	this.profilesProducer.getProfiles$.subscribe(res=>console.log(res));
+	
   }
 
   openChat(toUser: any) {
     console.log(toUser);
-    //let toUserObj = this.profiles.find((x) => x._id == toUser);
-    //};
-    //console.log(navigationExtras);
-    // var newWindow = window.open('http://localhost:3000/chat');
-
-    //this._dataService.data=toUserObj;
     this._router.navigate(['/chat']); //,{id:toUser}
-    //this.windowView.pushWindow(MyWindowComponent);
   }
 
   delete(id: string) {
     console.log(id);
-    this.store.dispatch(profilesActionTypes.deleteProfile({profileId:id}));
-    // this._profilesService.delete(id).subscribe(
-    //   (res: any) => {
-    //     console.log(res);
-    //     this.profiles = this.profiles.filter((item) => item._id !== id);
-    //   },
-    //   (error: any) => console.log(error)
-    // );
+    this.profilesProducer.deleteProfile(id);
   }
 
   // private setCurrentPosition() {

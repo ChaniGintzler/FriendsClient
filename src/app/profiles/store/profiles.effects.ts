@@ -51,7 +51,7 @@ export class ProfilesEffects {
       this.actions$.pipe(
         ofType(profilesActionTypes.updateProfile),
         concatMap((action) =>
-          this.profulesService.update(action.update.id )//action.update.changes
+          this.profulesService.update(action.update.id,action.update.changes )
         )
       ),
     { dispatch: false }

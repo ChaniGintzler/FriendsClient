@@ -1,84 +1,32 @@
 
   
-    <div class="container">
-            <div class="card card-container">
-                <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-                <p id="profile-name" class="profile-name-card"></p>
-                <form class="form-signin" [formGroup]="form" >
-                    <span id="reauth-email" class="reauth-email"></span>
-                    <input type="email" class="form-control" placeholder="Email address" 
-                   formControlName="email" name="username" required autofocus>
-                    <input type="password"  class="form-control" placeholder="Password" 
-                     formControlName="password" name="password" required>
-                    <button class="btn btn-lg btn-primary btn-block btn-signin" (click)="signIn()">Log in</button>
-                    <!-- <a href="/oauth/google">Sign in with Google</a>
-                    <a href="/oauth/facebook">Sign in with Facebook</a> -->
+    <div class="border">
+		<h3>Sign in</h3>
+                <form class="wrapper" [formGroup]="form" >
+					<div>
+						<mat-form-field appearance="outline">
+						  <mat-label>Email adress</mat-label>
+						  <input matInput placeholder="Email" formControlName="email" autofocus>
+						</mat-form-field>
+					  </div>
+					  <div>
+						<mat-form-field appearance="outline">
+						  <mat-label>Password</mat-label>
+						  <input matInput placeholder="Password" formControlName="password" autofocus>
+						</mat-form-field>
+					  </div>
+                   
+                    <button mat-raised-button color="primary" class="btn"
+					(click)="signIn()">Log in</button>
+					<span>{{errorMessage}}</span>
                     <a [routerLink]="['/authentication/signup']">Signup</a>
                 </form>
-            </div>
         </div>
-        <span>{{errorMessage}}</span>
-        
        
-<!-- <form (ngSubmit)="signin()">
-    <div>
-        <label>Username:</label>
-        <input type="text" [(ngModel)]="credentials.username" name="username">
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" [(ngModel)]="credentials.password" name="password">
-    </div>
-    <div>
-        <input type="submit" value="Sign In">
-    </div>
-    <span>{{errorMessage}}</span>
-</form> -->
 
 
 
 
 
 
-<!-- <div class="container"> 
-		<div class="row">
-			<div class="col-md-4 col-md-offset-7">
-				<div class="panel panel-default">
-					<div class="panel-heading"> <strong class="">Login</strong>
-					</div>
-					<div class="panel-body">
-						<form class="form-horizontal" role="form">
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-3 control-label">Email</label>
-								<div class="col-sm-9">
-									<input type="email" class="form-control" id="inputEmail3" placeholder="Email" required="">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputPassword3" class="col-sm-3 control-label">Password</label>
-								<div class="col-sm-9">
-									<input type="password" class="form-control" id="inputPassword3" placeholder="Password" required="">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-offset-3 col-sm-9">
-									<div class="checkbox">
-										<label class="">
-											<input type="checkbox" class="">Remember me</label>
-									</div>
-								</div>
-							</div>
-							<div class="form-group last">
-								<div class="col-sm-offset-3 col-sm-9">
-									<button type="submit" class="btn btn-success btn-sm">Sign in</button>
-									<button type="reset" class="btn btn-default btn-sm">Reset</button>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="panel-footer">Not Registered? <a href="#" class="">Register here</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>-->
+

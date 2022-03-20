@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+  .formP{
+    display: flex;
+    flex-direction: column;
+  }
+  .btn{
+    align-self:center;
+  }

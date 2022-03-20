@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Profile } from './models/profile.model';
 
 @Injectable({ providedIn: 'root' })
 export class ProfilesService {
@@ -26,9 +27,9 @@ export class ProfilesService {
     //.catch(this.handleError);
   }
 
-  update(profile: any): Observable<any> {
+  update(profileId:any,profile: any): Observable<any> {
     return this._http
-      .put(`${this._baseURL}/${profile._id}`, profile)
+      .put(`${this._baseURL}/${profileId}`, profile)
       .pipe(map((res: any) => res.json()));
     //.catch(this.handleError);
   }

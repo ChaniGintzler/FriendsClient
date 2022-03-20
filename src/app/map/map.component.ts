@@ -17,7 +17,7 @@ import { templateJitUrl } from '@angular/compiler';
 @Component({
  //  moduleId: __moduleName,
    templateUrl: './map.template.html',
-   selector:'map-comp'
+   selector:'map-component'
 
 })
 export class MapComponent{
