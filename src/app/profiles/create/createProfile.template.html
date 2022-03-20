@@ -1,101 +1,47 @@
-
-
-<div
-  class="col-md-6 col-md-offset-3 panel panel-default"
-  style="vertical-align: middle"
->
+<div  class="container">
   <h1>Your Profile</h1>
-  <form  [formGroup]="profileForm" >
-    <div class="form-group row">
-      <label for="First Name" class="col-sm-3 col-md-offset-3"
-        >First Name</label
-      >
-      <input
-        class="col-sm-3"
-        type="text"
-      formControlName="firstName"
-        name="firstName"
-        placeholder=""
-      />
+  <form class="formP" [formGroup]="profileForm">
+    <div >
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="First Name" formControlName="firstName">
+      </mat-form-field>
     </div>
-
-    <div class="form-group row">
-      <label for="Last Name" >Last Name</label>
-      <input
-        type="text"
-        class="col-sm-3"
-        formControlName="lastName"
-        name="lastName"
-        placeholder=""
-      />
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Last Name" formControlName="lastName">
+      </mat-form-field>
     </div>
-
-    <div class="form-group row">
-      <label for="Description" 
-        >Description</label
-      >
-      <input
-        type="text"
-        class="col-sm-3"
-        formControlName="description"
-        name="description"
-        placeholder=""
-      />
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="Description" formControlName="description">
+      </mat-form-field>
     </div>
-
-    <div class="form-group row">
-      <label for="Age" >Age</label>
-      <input
-        type="number"
-        class="col-sm-3"
-        formControlName="age"
-        name="age"
-        placeholder=""
-      />
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input matInput placeholder="Age" formControlName="age">
+      </mat-form-field>
     </div>
-
-    <div class="form-group row">
-      <label for="Height" >Height</label>
-      <input
-        type="number"
-        class="col-sm-3"
-        formControlName="height"
-        name="height"
-        placeholder=""
-      />
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Height</mat-label>
+        <input matInput placeholder="Height" formControlName="height">
+      </mat-form-field>
     </div>
-
-    <div class="form-group row">
-      <label for="Hobbies" >Hobbies</label>
-      <input
-        type="text"
-        class="col-sm-3"
-        cols="30"
-        formControlName="hobbies"
-        name="hobbies"
-        placeholder=""
-      />
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Hobbies</mat-label>
+        <input matInput placeholder="Hobbies" formControlName="hobbies">
+      </mat-form-field>
     </div>
-
-    <!-- <div class="form-group row">
-      <input
-        type="file"
-        #fileInput
-        class="col-sm-3 col-md-offset-3"
-        (change)="fileChangeEvent($event)"
-        placeholder="Upload file..."
-      /> 
-    </div>-->
-    <div class="form-group row">
-      <button
-        (click)="create()"
-        value="Save" [disabled]="!profileForm.valid"
-        class="btn btn-primary col-sm- col-md-offset-5"
-      >Save Profile</button>
-    </div>
+    <button mat-raised-button color="primary" (click)="create()" class="btn" >Save</button>
   </form>
 </div>
-<map-component
+
+<!-- <map-comp
   style="width: 100px"
   (adressChangedEvent)="OnAdressChanged($event)"
-></map-component>
+></map-comp> -->

@@ -13,6 +13,7 @@ declare var google: any;
 @Component({
   selector: 'createProfile',
   templateUrl: './createProfile.template.html',
+  styleUrls:['./createProfile.styles.css']
 })
 export class CreateProfileComponent {
   profile: any = {};

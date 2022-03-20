@@ -14,6 +14,8 @@ import { profilesReducer } from './store/profiles.reducers';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ProfilesResolver } from './profile.resolver';
+import { Materialodule } from '../material.module';
+
 import { ProfileItemComponent } from './profile-item/profile-item.component';
 // import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 
@@ -22,11 +24,8 @@ import { ProfileItemComponent } from './profile-item/profile-item.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MapModule,
-    
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyA-XQ2g2HHyo1Ygryc56Z5wuic3fKyXoKA', libraries: ["places"]
-    // }),
+    Materialodule,
+   // MapModule,
     RouterModule.forChild(ProfilesRoutes),
     StoreModule.forFeature('profiles', profilesReducer),
     EffectsModule.forFeature([ProfilesEffects])

@@ -1,25 +1,30 @@
 <div class="container-fluid" style="height:100%"  >
-  <nav class="navbar navbar-inverse" >
-          <div class="container-fluid">
-            
-            <div class="collapse navbar-collapse" id="myNavbar">
-              <ul class="nav navbar-nav">
-                <li><a [routerLink]="['/profiles']">List</a></li>
-                <li><a [routerLink]="['/profiles/create']">Create Profile</a></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right" *ngIf="user">		 
-                      <li >  <a href="/api/auth/signout">Sign Out</a></li>
-                      <li> <p class="navbar-text">Hello {{user.firstName}}</p></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right" *ngIf="!user">
-                      <li >
-                       <a [routerLink]="['/authentication/signin']">Login</a>
-                      </li> 
-              </ul>
-              
-            </div>
-          </div>
-        </nav>
+        <mat-toolbar>
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+           <mat-icon mat-button [matMenuTriggerFor]="menu">menu</mat-icon>
+         </button>
+         <span>Friends</span>
+         <span class="example-spacer"></span>
+         <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+           <mat-icon>favorite</mat-icon>
+         </button>
+         <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>share</mat-icon>
+        </button>
+       </mat-toolbar>
      
+       <mat-menu #menu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="login">Login</button>
+        <button mat-menu-item [matMenuTriggerFor]="profiles">Profile</button>
+      </mat-menu>
+      <mat-menu #login="matMenu">
+        <button mat-menu-item *ngIf="!user"> <span [routerLink]="['/authentication/signin']">Sign In</span></button>
+        <button mat-menu-item *ngIf="user"> <span [routerLink]="['/authentication/signout']">Sign Out</span></button>
+      </mat-menu>
+      <mat-menu #profiles="matMenu">
+        <button mat-menu-item ><span [routerLink]="['/profiles/create']">Create Profile</span></button>
+        <button mat-menu-item ><span [routerLink]="['/profiles']">Profiles</span></button>
+      </mat-menu>
+
 <router-outlet  ></router-outlet>
 </div>

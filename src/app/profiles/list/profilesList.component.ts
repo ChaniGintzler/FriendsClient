@@ -23,12 +23,10 @@ import { profilesReducer } from '../store/profiles.reducers';
 @Component({
   selector: 'list',
   templateUrl: './profilesList.template.html',
-  //styles:['./profilesList.styles.css']
+  styleUrls:['./profilesList.styles.css']
 })
 export class ProfilesListComponent implements OnInit {
-  // profiles: any[] = [];
   profiles$: Observable<Profile[]> | undefined;
-  //   users: any[] = [];
   //   public latitude: number | undefined;
   //   public longitude: number | undefined;
   //   public zoom: number | undefined;
