@@ -10,36 +10,42 @@ import { ChatModule } from './chat/chat.module';
 import { HomeModule } from './home/home.module';
 import { MapModule } from './map/map.module';
 import { ProfilesModule } from './profiles/profiles.module';
-import { AgmCoreModule } from '@agm/core';
+// import { AgmCoreModule } from '@agm/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/reducers';
 import { TokenInterceptor } from './authentication/http-interceptor';
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CommonModule,
-    HttpClientModule,
-    FormsModule,
-    HomeModule,
-    AuthenticationModule,
-    EffectsModule.forRoot([]),
-    StoreModule.forRoot(reducers, {
-      metaReducers,
-    }),
-    ChatModule,
-    MapModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyA-XQ2g2HHyo1Ygryc56Z5wuic3fKyXoKA',
-    }),
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-  ],
-  bootstrap: [AppComponent],
-})
-export class AppModule {}
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { Materialodule } from './material.module';
+    @NgModule({
+      declarations: [AppComponent],
+      imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        AppRoutingModule,
+        CommonModule,
+        HttpClientModule,
+        FormsModule,
+        HomeModule,
+        AuthenticationModule,
+        EffectsModule.forRoot([]),
+        StoreModule.forRoot(reducers, {
+          metaReducers,
+        }),
+        ChatModule,
+        MapModule,
+        Materialodule
+       // NoopAnimationsModule,
+        // AgmCoreModule.forRoot({
+        //   apiKey: 'AIzaSyA-XQ2g2HHyo1Ygryc56Z5wuic3fKyXoKA',
+        // }),
+      ],
+      providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+      ],
+      bootstrap: [AppComponent],
+    })
+    export class AppModule {}

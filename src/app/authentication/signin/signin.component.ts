@@ -30,9 +30,8 @@ export class SigninComponent {
     if (this.form.valid) {
       this._authenticationService.signin(this.form.value).subscribe(
         (result: any) => {
-			console.log(result);
           this._router.navigate(['/profiles']);
-        }, //this.notify.emit();
+        },
         (error: any) => (this.errorMessage = error.message)
       );
     }

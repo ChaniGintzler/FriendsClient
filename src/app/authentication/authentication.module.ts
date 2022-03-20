@@ -8,6 +8,7 @@ import { AuthenticationComponent } from './authentication.component';
 
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { Materialodule } from '../material.module';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { SignupComponent } from './signup/signup.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(AuthenticationRoutes),
+    Materialodule
   ],
   declarations: [
     AuthenticationComponent,

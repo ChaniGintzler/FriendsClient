@@ -58,9 +58,9 @@ export class ViewComponent {
 
   save() {
     console.log(this.profile);
-    this._profileService
-      .update(this.profile)
-      .subscribe((error: any) => (this.errorMessage = error));
+    // this._profileService
+    //   .update(this.profile)
+    //   .subscribe((error: any) => (this.errorMessage = error));
   }
 
   ngOnDestroy(): void {

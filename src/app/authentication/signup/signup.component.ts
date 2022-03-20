@@ -6,7 +6,8 @@ import {AuthenticationService} from '../authentication.service';
 
 @Component({
   selector: 'signup',
-  templateUrl: './signup.template.html'
+  templateUrl: './signup.template.html',
+  styleUrls:['./signup.styles.css']
 })
 export class SignupComponent { 
 	errorMessage: string | undefined;
