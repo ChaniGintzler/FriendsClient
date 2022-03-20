@@ -16,6 +16,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProfilesResolver } from './profile.resolver';
 import { Materialodule } from '../material.module';
 
+import { ProfileItemComponent } from './profile-item/profile-item.component';
 // import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 
 @NgModule({
@@ -33,7 +34,8 @@ import { Materialodule } from '../material.module';
     ProfilesComponent,
     CreateProfileComponent,
     ProfilesListComponent,
-    ViewComponent
+    ViewComponent,
+    ProfileItemComponent
   ],
   exports:[ProfilesComponent,ProfilesListComponent],//
   providers:[ProfilesResolver]

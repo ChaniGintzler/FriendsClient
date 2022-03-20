@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "friends"
+  "defaultProject": "friends",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
