@@ -10,20 +10,15 @@ import { ChatService } from './chat.service';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild(ChatRoutes),
-  ],
-  declarations: [
-    ChatComponent
-  ],
-  exports:[ChatComponent],
-  providers: [ChatService ],
-  entryComponents: [
-    // window component have to provide a component factory,
-    // by adding component to `entryComponents`.
-    ChatComponent
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule.forChild(ChatRoutes),
+    ],
+    declarations: [
+        ChatComponent
+    ],
+    exports: [ChatComponent],
+    providers: [ChatService]
 })
 export class ChatModule {}
