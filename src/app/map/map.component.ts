@@ -4,7 +4,7 @@ import {Router,NavigationExtras} from '@angular/router';
 import { Component, ElementRef,  NgZone, OnInit, ViewChild, Output,EventEmitter  } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
 // import { AgmCoreModule, MapsAPILoader,GoogleMapsAPIWrapper } from '@agm/core';
-import { templateJitUrl } from '@angular/compiler';
+//import { templateJitUrl } from '@angular/compiler';
 // import { Point } from '@agm/core/services/google-maps-types';
 
 

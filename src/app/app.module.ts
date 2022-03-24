@@ -21,6 +21,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { Materialodule } from './material.module';
     @NgModule({
       declarations: [AppComponent],
+      
       imports: [
         BrowserModule,
         BrowserAnimationsModule,

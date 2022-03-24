@@ -1,10 +1,12 @@
 <div  class="container">
-  <h1>Your Profile</h1>
+  <h1 class="text-3xl font-bold underline">Your Profile</h1>
   <form class="formP" [formGroup]="profileForm">
     <div >
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" 
+    >
         <mat-label>First Name</mat-label>
-        <input matInput placeholder="First Name" formControlName="firstName">
+        <input matInput placeholder="First Name" formControlName="firstName"
+       >
       </mat-form-field>
     </div>
     <div>
@@ -37,7 +39,8 @@
         <input matInput placeholder="Hobbies" formControlName="hobbies">
       </mat-form-field>
     </div>
-    <button mat-raised-button color="primary" (click)="create()" class="btn" >Save</button>
+    <button mat-raised-button color="primary" (click)="create()" class="btn hover:bg-sky-700" 
+    >Save</button>
   </form>
 </div>
 
